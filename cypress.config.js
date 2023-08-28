@@ -21,8 +21,8 @@ module.exports = defineConfig({
       return config
     },
     "stepDefinitions": [
-      "cypress/integration/[filepath]/**/*.{js,ts}",
-      "cypress/integration/[filepath].{js,ts}",
+      "cypress/e2e/[filepath]/**/*.{js,ts}",
+      "cypress/e2e/[filepath].{js,ts}",
       "cypress/support/step_definitions/**/*.{js,ts}",
     ]
   },
