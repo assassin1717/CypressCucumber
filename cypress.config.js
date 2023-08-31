@@ -1,29 +1,18 @@
 const { defineConfig } = require("cypress");
+const cucumber = require('cypress-cucumber-preprocessor').default
 
 module.exports = defineConfig({
   e2e: {
+    env: {
+      "TAGS": "not @ignore"
+    },
     baseUrl: 'https://www.google.pt/',
     specPattern: "**/*.feature",
 
     // prefix async
-    async setupNodeEvents(on, config) {
-      const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild').createEsbuildPlugin
-      const createBundler = require('@bahmutov/cypress-esbuild-preprocessor')
-
-      // await here
-      await require('@badeball/cypress-cucumber-preprocessor').addCucumberPreprocessorPlugin(on, config)
-
-      on('file:preprocessor', createBundler({
-        plugins: [createEsbuildPlugin(config)],
-      }));
-
-      // return any mods to Cypress
+    setupNodeEvents(on, config) {
+      on('file:preprocessor', cucumber())
       return config
-    },
-    "stepDefinitions": [
-      "cypress/e2e/[filepath]/**/*.{js,ts}",
-      "cypress/e2e/[filepath].{js,ts}",
-      "cypress/support/step_definitions/**/*.{js,ts}",
-    ]
+    }
   },
 });
