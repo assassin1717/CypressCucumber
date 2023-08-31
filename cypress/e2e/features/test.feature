@@ -1,5 +1,5 @@
 Feature: Google Chrome test
-
+#Scenario Outline is only used if you have Examples table if not use just Scenario
   Scenario Outline: Search in browser
     Given I am in Google home page
     Then I accept the cookies
