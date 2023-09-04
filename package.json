@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test-open": "npx cypress open",
-    "test-run": "npx cypress run"
+    "test-run": "npx cypress run && node generate.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,8 @@
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
     "cypress": "^12.17.3",
-    "cypress-cucumber-preprocessor": "^4.3.1"
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "multiple-cucumber-html-reporter": "^3.4.0"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
@@ -24,5 +25,8 @@
       "filePrefix": "",
       "fileSuffix": ".cucumber"
     }
+  },
+  "dependencies": {
+    "moment": "^2.29.4"
   }
 }
