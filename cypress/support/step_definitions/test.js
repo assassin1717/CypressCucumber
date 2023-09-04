@@ -1,4 +1,4 @@
-import { When, Then, Given } from "cypress-cucumber-preprocessor/steps";
+import { When, Then, Given, And } from "cypress-cucumber-preprocessor/steps";
 
 Given("I am in Google home page", () => {
     cy.visit("/");
@@ -8,7 +8,7 @@ When("I type in {string}", (text) => {
     cy.get("#APjFqb").type(`${text}`);
 });
 
-When("I click search button", () => {
+And("I click search button", () => {
     cy.get("div.FPdoLc.lJ9FBc > center > input.gNO89b").click();
 });
 
